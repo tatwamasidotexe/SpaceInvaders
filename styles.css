@@ -1,0 +1,73 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to top left, rgb(63, 131, 235), rgb(82, 255, 246));
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* .grid{
+    width: 85%;
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+.grid tr{
+    display: flex;
+}
+td{
+    border: 1px solid black;
+    width: calc(100%/15);
+    height: 2rem;
+
+} */
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 1px;
+    width: 300px;
+    height: 300px;
+}
+
+.grid div{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.shooter{
+    background-color: blue;
+    border-radius: 10px 10px 0 0;
+}
+
+.invader{
+    background-color: rgb(96, 0, 175);
+    border-radius: 10px;
+}
+
+.boom{
+    background-color: red;
+}
+
+.laser{
+    background-color: rgb(188, 255, 55);
+    max-width: 4px;
+    max-height: 16px;
+    margin: 1px 8px;
+}
