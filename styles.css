@@ -19,22 +19,6 @@ main{
     align-items: center;
     justify-content: center;
 }
-/* .grid{
-    width: 85%;
-    border-collapse: collapse;
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-}
-.grid tr{
-    display: flex;
-}
-td{
-    border: 1px solid black;
-    width: calc(100%/15);
-    height: 2rem;
-
-} */
 
 .grid{
     display: flex;
