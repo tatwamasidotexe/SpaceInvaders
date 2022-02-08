@@ -121,7 +121,7 @@ function moveDaInvaders() {
 
   // declare a win bih when all aliens are in the taken down array
   if (aliensTakenDown.length === spaceInvaders.length) {
-    resultToDisplay.innerHTML = 'YOU WIN!';
+    resultToDisplay.innerHTML = score + ' (you WIN, damn)';
     alert('YOU WIN!! Yayyiee :))))');
     clearInterval(invaderID);
   }
