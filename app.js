@@ -137,7 +137,7 @@ function moveDaInvaders() {
 }  // end of invadersMOVEbitches()
 
 // calling the invadersmove function at intervals of half a sec
-invaderID = setInterval(moveDaInvaders, 200);
+invaderID = setInterval(moveDaInvaders, 300);
 
 
 
