@@ -3,13 +3,13 @@ const resultToDisplay = document.querySelector('#result');
 let width = 15;
 let score = 0;
 let direction = 1; // 1 for forward or R, -1 for backward or L
-let shooterIndexRN = 202;
+let shooterIndexRN = 215;
 let invaderID;
 let goinRight = true;
 let aliensTakenDown = [];
 
 // automating creation of width x width grid
-for (let i = 0; i < 225; ++i) {
+for (let i = 0; i < width*width; ++i) {
   const square = document.createElement('div');
   grid.appendChild(square);
 }
@@ -44,8 +44,11 @@ function removeAliens() {
 // drawing the shooter
 squares[shooterIndexRN].classList.add('shooter');
 
+
+
 // moving the shooter around when event e occurs
 function moveDaShooter(e) {
+  
   squares[shooterIndexRN].classList.remove('shooter');
   
   // so basically you can move left as long as remainder is not 0, if it's 0 you're at the end of the grid
@@ -65,6 +68,8 @@ function moveDaShooter(e) {
 
 // adding an eventlistener that listens to the keydown action and triggers the move shooter function whenever we press left and right arrow keys
 document.addEventListener('keydown', moveDaShooter);
+
+
 
 // moving the invaders, from side to side, moving down a row each time
 function moveDaInvaders() {
@@ -108,6 +113,8 @@ function moveDaInvaders() {
     resultToDisplay.innerHTML = 'GAME OVER';
     alert("GAME OVER! :)");
     clearInterval(invaderID);
+    document.removeEventListener('keydown', moveDaShooter);
+    document.removeEventListener('keydown', shootDaAliens);
   }
 
   // aliens missed the shooter but are at the bottom? yep, game over
@@ -116,6 +123,8 @@ function moveDaInvaders() {
       resultToDisplay.innerHTML = 'GAME OVER';
       alert("GAME OVER! :)");
       clearInterval(invaderID);
+      document.removeEventListener('keydown', moveDaShooter);
+      document.removeEventListener('keydown', shootDaAliens);
     }
   }
 
@@ -125,10 +134,12 @@ function moveDaInvaders() {
     alert('YOU WIN!! Yayyiee :))))');
     clearInterval(invaderID);
   }
-} // end of invadersMOVEbitches()
+}  // end of invadersMOVEbitches()
 
 // calling the invadersmove function at intervals of half a sec
-invaderID = setInterval(moveDaInvaders, 600)
+invaderID = setInterval(moveDaInvaders, 200);
+
+
 
 function shootDaAliens(e) {
   let laserID;
