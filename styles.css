@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: linear-gradient(to top left, rgb(63, 131, 235), rgb(82, 255, 246));
+    background-image: url("images/spacebg.jpg");
     height: 100vh;
     width: 100%;
     display: flex;
@@ -13,6 +13,7 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: antiquewhite;
 }
 main{
     display: flex;
@@ -23,7 +24,7 @@ main{
 .grid{
     display: flex;
     flex-wrap: wrap;
-    border: solid 1px;
+    border: solid transparent 1px;
     width: 300px;
     height: 300px;
 }

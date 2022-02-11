@@ -32,7 +32,7 @@ function drawAliens() {
     }
   }
 }
-drawAliens()
+drawAliens();
 
 // removing aliens from display
 function removeAliens() {
@@ -74,7 +74,7 @@ function moveDaInvaders() {
   const rightEdge = spaceInvaders[spaceInvaders.length - 1] % width === width -1;
   
   // remove all aliens
-  removeAliens()
+  removeAliens(); 
 
   if (rightEdge && goinRight) {
     
@@ -113,7 +113,7 @@ function moveDaInvaders() {
   // aliens missed the shooter but are at the bottom? yep, game over
   for (let i = 0; i < spaceInvaders.length; i++) {
     if(spaceInvaders[i] > (squares.length)) {
-      resultsDisplay.innerHTML = 'GAME OVER';
+      resultToDisplay.innerHTML = 'GAME OVER';
       alert("GAME OVER! :)");
       clearInterval(invaderID);
     }
