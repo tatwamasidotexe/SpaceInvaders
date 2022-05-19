@@ -66,7 +66,7 @@ function moveDaShooter(e) {
   squares[shooterIndexRN].classList.add('shooter');
 } // end of move shooter func
 
-// adding an eventlistener that listens to the keydown action and triggers the move shooter function whenever we press left and right arrow keys
+// adding an eventlistener that triggers the move shooter function whenever we press left and right arrow keys
 document.addEventListener('keydown', moveDaShooter);
 
 
@@ -110,7 +110,7 @@ function moveDaInvaders() {
 
   // alien invader has got to the shooter square? lol game over
   if (squares[shooterIndexRN].classList.contains('invader', 'shooter')) {
-    resultToDisplay.innerHTML = 'GAME OVER';
+    resultToDisplay.parentNode.innerHTML = 'GAME OVER';
     alert("GAME OVER! :)");
     clearInterval(invaderID);
     document.removeEventListener('keydown', moveDaShooter);
@@ -120,7 +120,7 @@ function moveDaInvaders() {
   // aliens missed the shooter but are at the bottom? yep, game over
   for (let i = 0; i < spaceInvaders.length; i++) {
     if(spaceInvaders[i] > (squares.length)) {
-      resultToDisplay.innerHTML = 'GAME OVER';
+      resultToDisplay.parentNode.innerHTML = 'GAME OVER';
       alert("GAME OVER! :)");
       clearInterval(invaderID);
       document.removeEventListener('keydown', moveDaShooter);
@@ -134,9 +134,9 @@ function moveDaInvaders() {
     alert('YOU WIN!! Yayyiee :))))');
     clearInterval(invaderID);
   }
-}  // end of invadersMOVEbitches()
+}  // end of moveDaInvaders()
 
-// calling the invadersmove function at intervals of half a sec
+// calling the moveDaInvaders function at intervals of half a sec
 invaderID = setInterval(moveDaInvaders, 300);
 
 
