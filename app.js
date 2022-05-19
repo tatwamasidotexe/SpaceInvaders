@@ -70,6 +70,25 @@ function moveDaShooter(e) {
 document.addEventListener('keydown', moveDaShooter);
 
 
+// ------------------ adding a countdown timer ----------------------
+let totalTime = 15000; // in ms
+const reduceTime = () => {
+    let timeLeft = --totalTime;
+    // console.log(totalTime);
+    if(timeLeft <= 0) {
+        clearInterval(countdown);
+        document.getElementById('timer').innerHTML = "TIME'S UP!";
+    }
+    let seconds = Math.floor(timeLeft/1000);
+    let ms = Math.floor(timeLeft % 1000);
+    document.getElementById('timer').innerHTML = seconds + " s " + ms + " ms remaining...";
+}
+let countdown;
+// --------------------------------------------------------------------
+
+
+
+// --------------------- moving the invaders ----------------------------
 
 // moving the invaders, from side to side, moving down a row each time
 function moveDaInvaders() {
@@ -107,10 +126,12 @@ function moveDaInvaders() {
   }
 
   drawAliens();
+  countdown = setInterval(reduceTime, 1);
 
   // alien invader has got to the shooter square? lol game over
   if (squares[shooterIndexRN].classList.contains('invader', 'shooter')) {
     resultToDisplay.parentNode.innerHTML = 'GAME OVER';
+    clearInterval(countdown);
     alert("GAME OVER! :)");
     clearInterval(invaderID);
     document.removeEventListener('keydown', moveDaShooter);
@@ -121,6 +142,7 @@ function moveDaInvaders() {
   for (let i = 0; i < spaceInvaders.length; i++) {
     if(spaceInvaders[i] > (squares.length)) {
       resultToDisplay.parentNode.innerHTML = 'GAME OVER';
+      clearInterval(countdown);
       alert("GAME OVER! :)");
       clearInterval(invaderID);
       document.removeEventListener('keydown', moveDaShooter);
@@ -131,7 +153,9 @@ function moveDaInvaders() {
   // declare a win bih when all aliens are in the taken down array
   if (aliensTakenDown.length === spaceInvaders.length) {
     resultToDisplay.innerHTML = score + ' (you WIN, damn)';
+    clearInterval(countdown);
     alert('YOU WIN!! Yayyiee :))))');
+    clearInterval(countdown);
     clearInterval(invaderID);
   }
 }  // end of moveDaInvaders()
@@ -139,8 +163,11 @@ function moveDaInvaders() {
 // calling the moveDaInvaders function at intervals of half a sec
 invaderID = setInterval(moveDaInvaders, 300);
 
+// ------------------------------------------------------------------------------------------------
 
 
+
+// ---------------------------- shooting the aliens ------------------------------------------------
 function shootDaAliens(e) {
   let laserID;
   let laserIndexRN = shooterIndexRN // has to begin shooting from the shooter
